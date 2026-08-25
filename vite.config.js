@@ -1,5 +1,6 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
+import { env } from 'node:process'
 
 // https://vite.dev/config/
 //
@@ -8,5 +9,5 @@ import react from '@vitejs/plugin-react'
 // value so renames of the repo don't silently break asset URLs.
 export default defineConfig(({ command }) => ({
   plugins: [react()],
-  base: command === 'build' ? (process.env.VITE_BASE || '/teams-shell/') : '/',
+  base: command === 'build' ? (env.VITE_BASE || '/teams-shell/') : '/',
 }))
